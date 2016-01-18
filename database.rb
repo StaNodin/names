@@ -40,15 +40,15 @@ choise = ''
 while choise != 'x' do
   choise = gets.chomp
   choise_a = case choise
-               when 'w'
-                 enter_data
-               when 'r'
-                 show_data
-               when 'd'
-                 delete_data
-               else
-                 repeet_choice
-             end
+    when 'w'
+      enter_data
+    when 'r'
+      show_data
+    when 'd'
+      delete_data
+    else
+      repeet_choice
+    end
   puts choise_a
 end
 
