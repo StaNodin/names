@@ -8,18 +8,20 @@ def enter_data
   emale = gets.chomp
   names = [name, surname, emale]
   puts 'Your data is:'
-  puts 'First Name, Last Name, Email'
-  puts names[0] + ', ' + names[1] + ', ' + names[2]
+  puts "First Name: #{names[0]}; Last Name: #{names[1]}; Email: #{names[2]}"
   filename = 'names.txt'
-  File.open(filename, 'a') { |file| file.puts names }
+  File.open(filename, 'a') { |file| file.puts "#{names[0]}; #{names[1]}; #{names[2]}"}
   puts text
 end
 def show_data
   text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
   puts 'Your data is:'
-  filename = 'names.txt'
-  string = File.open(filename){|file| file.read}
-  puts string
+  File.open("names.txt") do |f|
+    f.each do |readline|
+      name, last_name, email = readline.chomp.split(";")
+      puts "First name: #{name}, Last name: #{last_name}, Email: #{email}"
+    end
+  end
   puts text
 end
 def delete_data
@@ -51,4 +53,3 @@ while choise != 'x' do
     end
   puts choise_a
 end
-
