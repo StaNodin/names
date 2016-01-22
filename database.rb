@@ -36,27 +36,24 @@ def repeet_choice
   puts 'Please repeet'
   puts text
 end
-def check
+def check_delete
+  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
   filename = 'names.txt'
   if File.exist?(filename)
     delete_data
   else
-    puts 'No such file! Please create it?'
-    puts 'y = yes'
-    choise = ''
-    while choise != 'y'
-      choise = gets.chomp
-      choise_a = case choise
-                   when 'y'
-                     enter_data
-                   else
-                     puts 'Please enter your choise!'
-                 end
-      puts 'Please enter your choise!'
-    else
-      enter_data
-    end
-  puts choise_a
+    puts 'No such file!'
+    puts text
+  end
+end
+def check_show
+  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
+  filename = 'names.txt'
+  if File.exist?(filename)
+    show_data
+  else
+    puts 'No such file!'
+    puts text
   end
 end
 text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
@@ -70,7 +67,7 @@ while choise != 'x' do
                when 'r'
                  show_data
                when 'd'
-                 check
+                 check_delete
                else
                  repeet_choice
              end
