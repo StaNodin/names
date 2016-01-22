@@ -16,7 +16,7 @@ end
 def show_data
   text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
   puts 'Your data is:'
-  File.open("names.txt") do |f|
+  File.open('names.txt') do |f|
     f.each do |readline|
       name, last_name, email = readline.chomp.split(";")
       puts "First name: #{name}, Last name: #{last_name}, Email: #{email}"
@@ -65,7 +65,7 @@ while choise != 'x' do
                when 'w'
                  enter_data
                when 'r'
-                 show_data
+                 check_show
                when 'd'
                  check_delete
                else
