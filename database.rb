@@ -57,7 +57,7 @@ def check_show
   end
 end
 def end_of_program
-  puts 'Goodbye'
+  puts 'Goodbye my friend)'
 end
 text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
 puts text
