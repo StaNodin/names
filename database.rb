@@ -1,5 +1,5 @@
 def enter_data
-  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
+  text = 'w - Enter data, x - Exit'
   puts 'Enter your name'
   name = gets.chomp
   puts 'Enter your surname'
@@ -14,7 +14,7 @@ def enter_data
   puts text
 end
 def show_data
-  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
+  text = 'w - Enter data, x - Exit'
   puts 'Your data is:'
   File.open('names.txt') do |f|
     f.each do |readline|
@@ -37,7 +37,7 @@ def repeet_choice
   puts text
 end
 def check_delete
-  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
+  text = 'w - Enter data, x - Exit'
   filename = 'names.txt'
   if File.exist?(filename)
     delete_data
@@ -47,7 +47,7 @@ def check_delete
   end
 end
 def check_show
-  text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
+  text = 'w - Enter data, x - Exit'
   filename = 'names.txt'
   if File.exist?(filename)
     show_data
@@ -56,20 +56,25 @@ def check_show
     puts text
   end
 end
+def end_of_program
+  puts 'Goodbye'
+end
 text = 'w - Enter data, r - Read data, d - Delete, x - Exit'
 puts text
 choise = ''
 while choise != 'x' do
   choise = gets.chomp
-  choise_a = case choise
-               when 'w'
-                 enter_data
-               when 'r'
-                 check_show
-               when 'd'
-                 check_delete
-               else
-                 repeet_choice
-             end
-  puts choise_a
+  case choise
+         when 'w'
+           enter_data
+         when 'r'
+           check_show
+         when 'd'
+           check_delete
+         when 'x'
+           end_of_program
+         else
+           repeet_choice
+  end
+
 end
